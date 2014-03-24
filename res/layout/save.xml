@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is the VERTICAL version -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/save"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <WebView
+        android:id="@+id/saveData"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="50" />
+
+    <ImageView
+        android:id="@+id/saveBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="50"
+        android:contentDescription="@string/describe_restore_buoy"
+        android:gravity="center"
+        android:src="@drawable/whitebuoy" />
+
+</LinearLayout>

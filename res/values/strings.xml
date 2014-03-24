@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LifeSaver2</string>
+    <string name="calls">" calls"</string>
+    <string name="calls_and">" calls &amp; "</string>
+    <string name="calls_saving">" calls; saving "</string>
+    <string name="download_failed">"Download failed, status "</string>
+    <string name="google_account">Google account for access</string>
+    <string name="messages">" messages"</string>
+    <string name="no_accounts">No Google accounts on device to authenticate with</string>
+    <string name="ouch">Ouch! Horrible LifeSaver error. </string>
+    <string name="preparing_restore">Preparing to restore your previously-saved life.</string>
+    <string name="preparing_save">Preparing to save your life, as found on this device.</string>
+    <string name="restoration_in_progress">Restoration of your previously saved life is now in progress.</string>
+    <string name="restored">"Restored "</string>
+    <string name="restoring">Restoring your calls and messages.</string>
+    <string name="restoring_ticker">Restoring your life</string>
+    <string name="saved">"Saved "</string>
+    <string name="saving">"Saving "</string>
+    <string name="saving_ticker">Saving your life</string>
+    <string name="upload_failed">"Upload failed: "</string>
+    <string name="upload_started">Upload started.</string>
+    <string name="visit">"They’ll be available for restore (and online at android-lifesaver.appspot.com) for a short time; use your "</string>
+    <string name="your_life">"Your life, as stored on this device, includes "</string>
+    <string name="save_your_life_multiline">"Save\nyour\nlife."</string>
+    <string name="save_your_life_one_line">Save your life.</string>
+    <string name="bring_it_back_multiline">"Bring\nit\nback."</string>
+    <string name="bring_it_back_one_line">"Bring it back."</string>
+    <string name="describe_save_buoy">Picture of a white lifebuoy; activates the Save operation.</string>
+    <string name="describe_restore_buoy">Picture of a red lifebuoy; activates the Restore operation</string>
+
+</resources>
