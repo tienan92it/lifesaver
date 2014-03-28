@@ -19,6 +19,7 @@ package com.textuality.lifesaver2;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import android.os.Bundle;
 import android.provider.Telephony.Sms;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -43,16 +45,18 @@ public class LifeSaver extends Activity {
     private ImageView mSaveBuoy, mRestoreBuoy;
     private final static long DURATION = 1000L;
     private Intent mNextStep;
+    public static String mDefaultSmsApp;
 
-    public static final String TAG = "LIFESAVER2"; 
+    public static final String TAG = "LIFESAVER2";
     public static final String PERSIST_APP_HREF = "https://android-lifesaver.appspot.com/";
     //public static final String PERSIST_APP_HREF = "http://192.168.1.108:8080/";
     public static URL PERSIST_APP;
-    public static String defaultSmsApp;
-    
+
     @Override
     public void onCreate(Bundle mumble) {
         super.onCreate(mumble);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.main);
 
         mSaveBuoy = (ImageView) findViewById(R.id.topBuoy);
@@ -81,7 +85,7 @@ public class LifeSaver extends Activity {
 
         WebView seeRandP = (WebView) findViewById(R.id.mainSeeRandP);
         seeRandP.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        seeRandP.setBackgroundColor(0xff000000);
+        seeRandP.setBackgroundColor(0xff000000); 
         seeRandP.loadDataWithBaseURL(LifeSaver.PERSIST_APP_HREF, 
                 "<html><head><style> " +
                         "p { color: white; background: black; font-size: 120%;} " +
@@ -92,14 +96,21 @@ public class LifeSaver extends Activity {
                         "</body></html>" , 
                         "text/html", "utf-8", null);
 
+        fixSmsForKitKat();
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void fixSmsForKitKat() {
         // If KitKat, prompt to become default SMS app if we aren't already.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            this.defaultSmsApp = Sms.getDefaultSmsPackage(this);
-            if (!this.defaultSmsApp.equals(this.getPackageName())) {
+
+            mDefaultSmsApp = Sms.getDefaultSmsPackage(this); 
+            if (!mDefaultSmsApp.equals(this.getPackageName())) {
                 Intent intent = new Intent(Sms.Intents.ACTION_CHANGE_DEFAULT);
                 intent.putExtra(Sms.Intents.EXTRA_PACKAGE_NAME, this.getPackageName());
                 this.startActivity(intent);
             }
+
         }
     }
 

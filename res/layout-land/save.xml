@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This is the HORIZONTAL version -->
-<LinearLayout android:id="@+id/save"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="horizontal" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<WebView android:id="@+id/saveData" android:layout_weight="50"
-		android:layout_height="fill_parent" android:layout_width="0dip" />
-	<ImageView android:layout_weight="50" android:layout_height="fill_parent"
-        android:contentDescription="@string/describe_restore_buoy"
-		android:layout_width="0dip" android:src="@drawable/redbuoy"
-		android:id="@+id/saveBottom" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/save"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+	<WebView
+	    android:id="@+id/saveData"
+	    android:layout_width="0dip"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="50"
+	    android:background="#000000" />
+
+	<ImageView
+	    android:id="@+id/saveBottom"
+	    android:layout_width="0dip"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="50"
+	    android:background="#000000"
+	    android:contentDescription="@string/describe_restore_buoy"
+	    android:src="@drawable/redbuoy" />
+
 </LinearLayout>

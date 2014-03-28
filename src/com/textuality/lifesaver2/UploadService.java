@@ -102,6 +102,14 @@ public class UploadService extends IntentService {
         mNotifier.notifySave(getString(R.string.saved) +
                 sentCalls + getString(R.string.calls_and) +  
                 mMessageCount + getString(R.string.messages), true);
+        
+        Intent done = new Intent(this, Done.class);
+        done.putExtra("isRestore", false);
+        done.putExtra("result", getString(R.string.saved) +
+                sentCalls + getString(R.string.calls_and) +  
+                mMessageCount + getString(R.string.messages) + ".");
+        done.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(done);
     }
 
     private boolean transmitChunk(List<JSONObject> toSend, AppEngineClient client, URL target, String key) {

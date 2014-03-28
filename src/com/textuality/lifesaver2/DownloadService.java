@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.TargetApi;
 import android.app.IntentService;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -22,6 +23,7 @@ import android.provider.Telephony.Sms;
 import com.textuality.aerc.AppEngineClient;
 import com.textuality.aerc.Response;
 
+@TargetApi(Build.VERSION_CODES.KITKAT)
 public class DownloadService extends IntentService {
 
     private Notifier mNotifier;
@@ -112,12 +114,15 @@ public class DownloadService extends IntentService {
             } 
         }
 
-        // If KitKat, prompt to restore default SMS app.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-        	Intent i = new Intent(Sms.Intents.ACTION_CHANGE_DEFAULT);
-        	i.putExtra(Sms.Intents.EXTRA_PACKAGE_NAME,  LifeSaver.defaultSmsApp);
-        }
-
+        Intent done = new Intent(this, Done.class);
+        done.putExtra("isRestore", true);
+        done.putExtra("result", getString(R.string.restored) + callsRestored.stored + "/" + callsRestored.downloaded + 
+                getString(R.string.calls) + ", " +
+                messagesRestored.stored + "/" + messagesRestored.downloaded + 
+                getString(R.string.messages) + ".");
+        done.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(done);
+        
         stopSelf();
     }
 
@@ -150,13 +155,14 @@ public class DownloadService extends IntentService {
 
     private void error(String message) {
         mNotifier.notifyRestore(getString(R.string.ouch) + message, true);
-        
-      
+
+
         // If KitKat, prompt to restore default SMS app.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-        	Intent i = new Intent(Sms.Intents.ACTION_CHANGE_DEFAULT);
-        	i.putExtra(Sms.Intents.EXTRA_PACKAGE_NAME, LifeSaver.defaultSmsApp);
-        	this.startActivity(i);
+            Intent i = new Intent(Sms.Intents.ACTION_CHANGE_DEFAULT);
+            i.putExtra(Sms.Intents.EXTRA_PACKAGE_NAME, LifeSaver.mDefaultSmsApp);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            this.startActivity(i);
         }
 
         stopSelf();

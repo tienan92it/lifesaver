@@ -24,7 +24,7 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.Window;
 import android.webkit.WebView;
 
 import com.textuality.aerc.Authenticator;
@@ -33,12 +33,14 @@ public class Saver extends Activity {
 
     private WebView mReadout;
 
-    private static final String mHead = "<style>body {color: #fff; background: #000}\n" +
+    public static final String mHead = "<style>body {color: #fff; background: #000}\n" +
             "a { text-decoration: none; font-weight: bold; color: #f88;}</style>";
 
     @Override
     protected void onCreate(Bundle mumble) {
         super.onCreate(mumble);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.save);
 
         mReadout = (WebView) findViewById(R.id.saveData);
@@ -50,11 +52,6 @@ public class Saver extends Activity {
                         "</p></body></html>", 
                         "text/html", "utf-8", null);
 
-        findViewById(R.id.saveBottom).setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                startActivity(new Intent(Saver.this, LifeSaver.class));
-            }
-        });
         new PrepareUpload().execute();
     }
 
@@ -107,10 +104,10 @@ public class Saver extends Activity {
                         str(R.string.upload_started) + 
                         "</p><p>" + str(R.string.visit) + 
                         "&ldquo;" + mAccount.name + "&rdquo; " +
-                        str(R.string.google_account) + ".</p>";
+                        str(R.string.google_account) + ". " + str(R.string.stand_by) + "</p>";
             }
 
-            String page = "<html><head>" + mHead + "</head><body>" + body + "</body></html>";
+            String page = "<html><head>" + mHead + "</head><body>" + body + "<pStand by...</p></body></html>";
             mReadout.loadDataWithBaseURL(LifeSaver.PERSIST_APP_HREF, page, "text/html", "utf-8", null);
 
             if (authToken != null) {

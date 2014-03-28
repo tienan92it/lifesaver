@@ -5,13 +5,15 @@
     <string name="calls">" calls"</string>
     <string name="calls_and">" calls &amp; "</string>
     <string name="calls_saving">" calls; saving "</string>
+    <string name="done_saving">Your life has been saved!</string>
+    <string name="done_restoring">Your life has been restored!</string>
     <string name="download_failed">"Download failed, status "</string>
     <string name="google_account">Google account for access</string>
     <string name="messages">" messages"</string>
     <string name="no_accounts">No Google accounts on device to authenticate with</string>
     <string name="ouch">Ouch! Horrible LifeSaver error. </string>
-    <string name="preparing_restore">Preparing to restore your previously-saved life.</string>
-    <string name="preparing_save">Preparing to save your life, as found on this device.</string>
+    <string name="preparing_restore">Preparing to restore your previously-saved life. Stand by&#8230;</string>
+    <string name="preparing_save">Preparing to save your life, as found on this device. Stand by&#8230;</string>
     <string name="restoration_in_progress">Restoration of your previously saved life is now in progress.</string>
     <string name="restored">"Restored "</string>
     <string name="restoring">Restoring your calls and messages.</string>
@@ -19,6 +21,7 @@
     <string name="saved">"Saved "</string>
     <string name="saving">"Saving "</string>
     <string name="saving_ticker">Saving your life</string>
+    <string name="stand_by">Stand by&#8230;</string>
     <string name="upload_failed">"Upload failed: "</string>
     <string name="upload_started">Upload started.</string>
     <string name="visit">"They’ll be available for restore (and online at android-lifesaver.appspot.com) for a short time; use your "</string>

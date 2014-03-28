@@ -8,11 +8,13 @@
 
     <WebView
         android:id="@+id/restoreData"
+        android:background="#000000"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="50" />
 
     <ImageView
+        android:background="#000000"
         android:id="@+id/restoreBottom"
         android:layout_width="fill_parent"
         android:layout_height="0dip"

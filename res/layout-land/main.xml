@@ -9,7 +9,9 @@
     <WebView
         android:id="@+id/mainSeeRandP"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#000000" >
+
     </WebView>
 
     <LinearLayout
@@ -29,6 +31,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dip"
                 android:layout_weight="20"
+                android:background="#000000"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.2"
                 android:text="@string/save_your_life_one_line"
@@ -40,8 +43,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dip"
                 android:layout_weight="80"
+                android:background="#000000"
                 android:contentDescription="@string/describe_save_buoy"
                 android:src="@drawable/whitebuoy" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -49,6 +54,7 @@
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="50"
+            android:background="#000000"
             android:orientation="vertical" >
 
             <ImageView
@@ -56,6 +62,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dip"
                 android:layout_weight="80"
+                android:background="#000000"
                 android:contentDescription="@string/describe_restore_buoy"
                 android:src="@drawable/redbuoy" />
 
@@ -64,11 +71,13 @@
                 android:layout_width="fill_parent"
                 android:layout_height="0dip"
                 android:layout_weight="20"
+                android:background="#000000"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.2"
                 android:text="@string/bring_it_back_one_line"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </LinearLayout>
 

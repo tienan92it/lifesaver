@@ -4,20 +4,23 @@
     android:id="@+id/container"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000000"
     android:orientation="vertical" >
 
     <WebView
         android:id="@+id/mainSeeRandP"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="10" >
+        android:layout_weight="12"
+        android:background="#000000" >
     </WebView>
 
     <LinearLayout
         android:id="@+id/mainTop"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="45"
+        android:layout_weight="44"
+        android:background="#000000"
         android:orientation="horizontal" >
 
         <TextView
@@ -25,6 +28,7 @@
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="20"
+            android:background="#000000"
             android:gravity="center"
             android:lineSpacingMultiplier="1.2"
             android:text="@string/save_your_life_multiline"
@@ -32,11 +36,12 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:contentDescription="@string/describe_save_buoy"
             android:id="@+id/topBuoy"
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="80"
+            android:background="#000000"
+            android:contentDescription="@string/describe_save_buoy"
             android:src="@drawable/whitebuoy" />
     </LinearLayout>
 
@@ -44,15 +49,17 @@
         android:id="@+id/mainBottom"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
-        android:layout_weight="45"
+        android:background="#000000"
+        android:layout_weight="44"
         android:orientation="horizontal" >
 
         <ImageView
-            android:contentDescription="@string/describe_restore_buoy"
             android:id="@+id/bottomBuoy"
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="80"
+            android:background="#000000"
+            android:contentDescription="@string/describe_restore_buoy"
             android:src="@drawable/redbuoy" />
 
         <TextView
@@ -60,6 +67,7 @@
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="20"
+            android:background="#000000"
             android:gravity="center"
             android:lineSpacingMultiplier="1.2"
             android:text="@string/bring_it_back_multiline"

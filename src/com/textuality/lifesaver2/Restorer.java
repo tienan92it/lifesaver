@@ -23,7 +23,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 
 import com.textuality.aerc.Authenticator;
@@ -37,6 +38,9 @@ public class Restorer extends Activity {
     @Override
     protected void onCreate(Bundle mumble) {
         super.onCreate(mumble);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.restore);
 
         mReadout = (WebView) findViewById(R.id.restoreData);
@@ -47,13 +51,7 @@ public class Restorer extends Activity {
                         Restorer.this.getString(R.string.preparing_restore) +
                         "</p></body></html>", 
                         "text/html", "utf-8", null);
-
-        findViewById(R.id.restoreBottom).setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                startActivity(new Intent(Restorer.this, LifeSaver.class));
-            }
-        });
-
+        
         new PrepareDownload().execute();
     }
 
@@ -91,7 +89,8 @@ public class Restorer extends Activity {
 
             } else {
                 body = "<p>" + 
-                        Restorer.this.getString(R.string.restoration_in_progress) + 
+                        Restorer.this.getString(R.string.restoration_in_progress) + " " +
+                        Restorer.this.getString(R.string.stand_by) +
                         "</p>";
             }
 
